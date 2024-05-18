@@ -1,0 +1,105 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model usuarios {
+  id Int @id @default(autoincrement())
+  username String @unique
+  password String
+  rol Rol @default(Usuario)
+  establecimientos Int[]
+  lastAccess DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model establecimientos {
+  id Int @id @default(autoincrement())
+  nombre String @unique
+  domicilio String?
+  localidad String?
+  provincia String?
+  cp String?
+  ciiu String?
+  tel String?
+  art String?
+}
+
+model years {
+  year Int @id
+  open Boolean
+}
+
+model planesAnuales {
+  id Int @id @default(autoincrement())
+  nombre String
+  descripcion String
+}
+
+
+model planAnualData {
+  id Int @id @default(autoincrement())
+  planAnualId Int
+  actividad String
+  enero Int[]
+  febrero Int[]
+  marzo Int[]
+  abril Int[]
+  mayo Int[]
+  junio Int[]
+  julio Int[]
+  agosto Int[]
+  septiembre Int[]
+  octubre Int[]
+  noviembre Int[]
+  diciembre Int[]
+  establecimientoId Int
+  cumplimiento Cumplimiento?
+  year Int
+}
+
+model planesAnualesCustom {
+  id Int @id @default(autoincrement())
+  nombre String
+  establecimientoId Int
+}
+
+model planAnualCustomData {
+  id Int @id @default(autoincrement())
+  planAnualCustomId Int
+  actividad String
+  enero Int[]
+  febrero Int[]
+  marzo Int[]
+  abril Int[]
+  mayo Int[]
+  junio Int[]
+  julio Int[]
+  agosto Int[]
+  septiembre Int[]
+  octubre Int[]
+  noviembre Int[]
+  diciembre Int[]
+  cumplimiento Cumplimiento?
+  establecimientoId Int
+  year Int
+}
+
+enum Rol {
+  Usuario
+  Administrador
+  Observador
+}
+
+enum Cumplimiento {
+  A
+  C
+  MC
+  PC
+  IN
+}
