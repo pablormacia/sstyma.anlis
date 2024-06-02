@@ -19,6 +19,13 @@ module.exports = {
     theme:{
       fontFamily:{
         'select' : ['inter']
+      },
+      colors:{
+        primary: '#1E40AF', // azul
+        secondary: '#E11D48', // rojo
+        accent: '#10B981', // verde
+        neutral: '#3D4451', // gris
+        base: '#F3F4F6', // gris claro
       }
     }
   },

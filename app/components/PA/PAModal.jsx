@@ -20,8 +20,8 @@ const PAModal = ({ openModal, setOpenModal, establecimientoSelectedId, yearSelec
     useEffect(() => {
         setMeses([[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]])
     }, [openModal])
-    console.log(yearSelected, establecimientoSelectedId)
-    console.log(actividad, cumplimiento)
+    //console.log(yearSelected, establecimientoSelectedId)
+    //console.log(actividad, cumplimiento)
     const handleSubmit = () => {
         setOpenModal(false)
         const enero = meses[0]
